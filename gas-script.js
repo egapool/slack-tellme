@@ -7,7 +7,7 @@ function test() {
 
 function doPost(e){
   try {
-      //verify(e)
+    //return verify(e)
     //MailApp.sendEmail(mail, 'メール', 'check OK')
 
     // First request
@@ -74,7 +74,7 @@ function responseExplain(word, user) {
     "actions": [
       {
         "name": "edit",
-        "text": "ここで編集する",
+        "text": "いっちょやってみっか",
         "style": "danger",
         "type": "button",
         "value": word
@@ -82,16 +82,16 @@ function responseExplain(word, user) {
     ]
   }];
   let payload
-  let link = "\n\nスプレットシートでも編集できます\nhttps://docs.google.com/spreadsheets/d/"+PropertiesService.getScriptProperties().getProperty('SHEET_ID')+"/edit#gid=0"
+  let link = "\n\nhttps://docs.google.com/spreadsheets/d/"+PropertiesService.getScriptProperties().getProperty('SHEET_ID')+"/edit#gid=0"
   if (explain == null) {
     payload = {
       "attachments": attachments,
-      "text": "<@"+user+"> " + "「" + word + "」はまだ登録されていません。\nあなたが書いてみませんか？"+link
+      "text": "<@"+user+"> わかってるぜ…サイヤ人の仲間が殺されたのがくやしいんじゃねえんだろ…？\n"+word+"の意味がわからねぇのがくやしくてしょうがねえんだろ…？\nおめえのことは大キライだったけどサイヤ人の誇りはもっていた…\nオラもすこしわけてもらうぞその誇りを…　\nオラも"+word+"の意味はわからねえ…！!ベジータ…すまねえ！おめえが書いてくれ！！"+link
     }
   } else {
     payload = {
       "attachments": attachments,
-      "text": "<@"+user+"> " + word + "\n" + explain +　link
+      "text": "<@"+user+"> なんだおめぇ、" + word + "も知らねえのか！？"+word+"ってのはよぉ…\n\n" + explain +　link
     }
   }
     //MailApp.sendEmail(mail, 'responseExplain', word)
@@ -193,4 +193,5 @@ function setExplain(word, explain) {
     }
   }
 }
+
 
